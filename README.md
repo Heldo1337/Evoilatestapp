@@ -1,5 +1,11 @@
 # Evoila Test App — Schritt für Schritt
 
+# Vorgabe
+- Kubernetes-Cluster aufsetzen
+- ArgoCD deployen
+- Monitoring-Stack mit Prometheus, Grafana und Loki einrichten
+- Beispielapplikation
+
 ## Schritt 1 — Voraussetzungen
 - Docker Desktop installiert
 - WSL2 mit Ubuntu
