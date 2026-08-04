@@ -4,7 +4,7 @@ metadata:
   name: grafana-datasource
   namespace: monitoring-dev
 data:
-  datasource.yaml: |
+  prometheus-datasource.yaml: |
     apiVersion: 1
     datasources:
       - name: Prometheus
@@ -12,3 +12,10 @@ data:
         url: http://prometheus-service:9090
         access: proxy
         isDefault: true
+  loki-datasource.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Loki
+        type: loki
+        url: http://loki-service:3100
+        access: proxy
