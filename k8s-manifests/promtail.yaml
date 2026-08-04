@@ -7,13 +7,10 @@ data:
   promtail.yaml: |
     server:
       http_listen_port: 9080
-
     positions:
       filename: /run/promtail/positions.yaml
-
     clients:
       - url: http://loki-service:3100/loki/api/v1/push
-
     scrape_configs:
       - job_name: kubernetes-pods
         kubernetes_sd_configs:
@@ -82,6 +79,8 @@ spec:
             - name: varlibdockercontainers
               mountPath: /var/lib/docker/containers
               readOnly: true
+            - name: positions
+              mountPath: /run/promtail
       volumes:
         - name: config
           configMap:
@@ -92,3 +91,5 @@ spec:
         - name: varlibdockercontainers
           hostPath:
             path: /var/lib/docker/containers
+        - name: positions
+          emptyDir: {}
