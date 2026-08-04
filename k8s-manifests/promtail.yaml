@@ -76,8 +76,8 @@ spec:
               mountPath: /etc/promtail
             - name: varlog
               mountPath: /var/log
-            - name: varlibdockercontainers
-              mountPath: /var/lib/docker/containers
+            - name: varlogpods
+              mountPath: /var/log/pods
               readOnly: true
             - name: positions
               mountPath: /run/promtail
@@ -88,8 +88,8 @@ spec:
         - name: varlog
           hostPath:
             path: /var/log
-        - name: varlibdockercontainers
+        - name: varlogpods
           hostPath:
-            path: /var/lib/docker/containers
+            path: /var/log/pods
         - name: positions
           emptyDir: {}
