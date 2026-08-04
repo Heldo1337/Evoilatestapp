@@ -1,4 +1,4 @@
-# Evoila Test App — Schritt für Schritt
+# Evoila Test App
 
 # Vorgabe
 - Kubernetes-Cluster aufsetzen
