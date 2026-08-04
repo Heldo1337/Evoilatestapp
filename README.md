@@ -117,14 +117,6 @@ kubectl rollout restart deployment grafana -n monitoring-dev
 kubectl apply -f promtail.yaml
 ```
 
-**Debugging:**
-- Positions-File-Fehler → fehlendes `emptyDir`-Volume für `/run/promtail` ergänzt
-- Keine Logs trotz laufendem Promtail → `/var/lib/docker/containers` existiert bei k3d/containerd nicht, umgestellt auf `/var/log/pods`
-- Immer noch keine Targets (0/0) → fehlender `__path__` in den `relabel_configs` ergänzt
-- Discovery fand trotzdem 0 Pods → `spec.nodeName` Selector nutzte den Pod-Namen statt des echten Node-Namens (HOSTNAME-Umgebungsvariable stand falsch) → `HOSTNAME` explizit über Downward API (`fieldRef: spec.nodeName`) gesetzt
-
-Nach dem Fix: **13/21 aktive Targets**, Logs von `hello-kevin` kommen live in Grafana Explore an.
-
 ## Ergebnis
 ```bash
 kubectl get pods -n argocd
